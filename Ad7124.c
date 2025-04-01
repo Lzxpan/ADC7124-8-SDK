@@ -85,26 +85,26 @@ void Ad7124_Init(void)
     HAL_Delay(AD7124_DELAY_TIME);
 
     //設定腳位與通道
-    pData[0] = (uint8_t)(0x8093 >> 8);//80F3
+    pData[0] = (uint8_t)(0x8093 >> 8);
     pData[1] = (uint8_t)0x8093;
     AD7124_Write_Register(AD7124_CH0_MAP_REG, pData, 2); // 配置通道寄存器，AIN4 CH0
-	HAL_Delay(AD7124_DELAY_TIME);
+    HAL_Delay(AD7124_DELAY_TIME);
 
-	pData[0] = (uint8_t)(0x80D3 >> 8);//80F3
-	pData[1] = (uint8_t)0x80D3;
-	AD7124_Write_Register(AD7124_CH1_MAP_REG, pData, 2); // 配置通道寄存器，AIN6 CH1
-	HAL_Delay(AD7124_DELAY_TIME);
+    pData[0] = (uint8_t)(0x80D3 >> 8);
+    pData[1] = (uint8_t)0x80D3;
+    AD7124_Write_Register(AD7124_CH1_MAP_REG, pData, 2); // 配置通道寄存器，AIN6 CH1
+    HAL_Delay(AD7124_DELAY_TIME);
 
-	pData[0] = (uint8_t)(0x80F3 >> 8);//80F3
-	pData[1] = (uint8_t)0x80F3;
-	AD7124_Write_Register(AD7124_CH2_MAP_REG, pData, 2); // 配置通道寄存器，AIN7 CH2
-	HAL_Delay(AD7124_DELAY_TIME);
-	//通道設定結尾
-    pData[0] = (uint8_t)(0x0140 >> 8);//0050
+    pData[0] = (uint8_t)(0x80F3 >> 8);
+    pData[1] = (uint8_t)0x80F3;
+    AD7124_Write_Register(AD7124_CH2_MAP_REG, pData, 2); // 配置通道寄存器，AIN7 CH2
+    HAL_Delay(AD7124_DELAY_TIME);
+    //通道設定結尾
+    pData[0] = (uint8_t)(0x0140 >> 8);
     pData[1] = (uint8_t)0x0140;
     AD7124_Write_Register(AD7124_CFG0_REG, pData, 2); // 配置配置寄存器
     HAL_Delay(AD7124_DELAY_TIME);
-    pData[0] = (uint8_t)(0x160180 >> 16);//000013
+    pData[0] = (uint8_t)(0x160180 >> 16);
     pData[1] = (uint8_t)(0x160180 >> 8);
     pData[2] = (uint8_t)(0x160180);
     AD7124_Write_Register(AD7124_FILT0_REG, pData, 3); // 配置滤波器寄存器
@@ -149,7 +149,6 @@ float AD7124_Conversion(uint32_t rData32)
  * @param  无
  * @retval 无
  */
-
 uint8_t AD7124_GetCH(uint32_t rData32)
 {
 	rData32 = rData32 & 0x03;
