@@ -71,11 +71,11 @@
 #define AD7124_SPI_TIMEOUT 20
 #define AD7124_DELAY_TIME  100
  
-#define AD7124_CS_GPIO     GPIOB
-#define AD7124_CS_PIN      GPIO_PIN_12
+#define AD7124_CS_GPIO     GPIOB        //設定CS腳位的PORT群組，此處為PORT B
+#define AD7124_CS_PIN      GPIO_PIN_12  //設定時機連接CS腳位的PIN腳，此為PIN12
  
-extern SPI_HandleTypeDef hspi2;
-#define AD7124_SPI         hspi2
+extern SPI_HandleTypeDef   hspi2;         //設定晶片SPI通訊的結構名稱，此處用SPI2，圈告為全域變數
+#define AD7124_SPI         hspi2          //將軒高的名稱重新定義為AD7124_SPI
  
 #define AD7124_CS_LOW      HAL_GPIO_WritePin(AD7124_CS_GPIO, AD7124_CS_PIN, GPIO_PIN_RESET);
 #define AD7124_CS_HIGHT    HAL_GPIO_WritePin(AD7124_CS_GPIO, AD7124_CS_PIN, GPIO_PIN_SET);
